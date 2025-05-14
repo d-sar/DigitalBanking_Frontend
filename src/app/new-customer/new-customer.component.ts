@@ -33,6 +33,7 @@ export class NewCustomerComponent {
       next: data => {
         alert("Customer has been successfully saved!");
         // Navigate after success
+        this.router.navigateByUrl("/customers");
       },
       error: err => {
         console.error(err);
