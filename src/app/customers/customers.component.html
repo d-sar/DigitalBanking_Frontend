@@ -1,52 +1,61 @@
-<div class="container mt-2">
-  <ng-container *ngIf="customers | async as listCustomers; else failureOrLading">
-    <div class="card" >
-      <div class="card-header">Customers</div>
-      <div class="card-body">
-        <div *ngIf="searchFormGroup">
-        <form [formGroup]="searchFormGroup" (ngSubmit)="handleSearchCustomers()">
-          <div class="input-group">
-            <label class="input-group-text">Keyword :</label>
-            <input type="text" formControlName="keyword" class="form-control">
-            <button class="btn btn-info">Search
-              <i class="bi bi-search"></i>
+<div class="container mt-4">
+  <ng-container *ngIf="customers | async as listCustomers; else failureOrLoading">
+    <div class="card shadow-sm border-0">
+      <div class="card-header text-white" style="background-color: #1E2A38;">
+        <h5 class="mb-0">👥 Customers</h5>
+      </div>
+      <div class="card-body bg-light">
+
+        <form *ngIf="searchFormGroup" [formGroup]="searchFormGroup" (ngSubmit)="handleSearchCustomers()">
+          <div class="input-group mb-3">
+            <span class="input-group-text bg-primary text-white" id="search-label">🔍</span>
+            <input type="text" formControlName="keyword" class="form-control" placeholder="Search by keyword" aria-label="Keyword" aria-describedby="search-label">
+            <button type="submit" class="btn text-white" style="background-color: #00B8D9;">
+              Search <i class="bi bi-search ms-1"></i>
             </button>
           </div>
         </form>
+
+        <div class="table-responsive">
+          <table class="table table-hover align-middle bg-white">
+            <thead class="text-white" style="background-color: #2C3E50;">
+            <tr>
+              <th scope="col">#ID</th>
+              <th scope="col">👤 Name</th>
+              <th scope="col">📧 Email</th>
+              <th scope="col">🗑️ Action</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let c of customers | async">
+              <td>{{ c.id }}</td>
+              <td>{{ c.name }}</td>
+              <td>{{ c.email }}</td>
+              <td>
+                <button (click)="handleDeleteCustomer(c)" class="btn btn-sm text-white" style="background-color: #E74C3C;">
+                  <i class="bi bi-trash"></i> Delete
+                </button>
+              </td>
+            </tr>
+            </tbody>
+          </table>
         </div>
-        <table class="table">
-          <thead>
-          <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Email</th>
-          </tr>
-          </thead>
-          <tbody>
-          <tr *ngFor="let c of customers | async">
-            <td>{{c.id}}</td>
-            <td>{{c.name}}</td>
-            <td>{{c.email}}</td>
-            <td>
-              <button (click)="handleDeleteCustomer(c)" class="btn btn-danger">
-                <i class="bi bi-trash"></i>
-              </button>
-            </td>
-          </tr>
-          </tbody>
-        </table>
+
       </div>
     </div>
   </ng-container>
-  <ng-template #failureOrLading>
+
+  <ng-template #failureOrLoading>
     <ng-container *ngIf="errorMessage; else loading">
-      <div class="text-danger">
-        {{errorMessage}}
+      <div class="alert alert-danger mt-4" role="alert">
+        {{ errorMessage }}
       </div>
     </ng-container>
     <ng-template #loading>
-      Loading .....
+      <div class="text-center mt-4">
+        <div class="spinner-border text-primary" role="status"></div>
+        <p class="mt-2">Loading customers...</p>
+      </div>
     </ng-template>
   </ng-template>
-
 </div>

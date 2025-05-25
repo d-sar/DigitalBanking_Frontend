@@ -8,7 +8,6 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
   selector: 'app-customer-accounts',
   imports: [
     JsonPipe,
-    AsyncPipe,
     FormsModule,
     ReactiveFormsModule
   ],

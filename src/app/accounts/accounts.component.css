@@ -1,0 +1,125 @@
+.card {
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(30, 42, 56, 0.1);
+  border: none;
+  animation: fadeInCard 0.6s ease-in-out;
+}
+
+@keyframes fadeInCard {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.card-header {
+  background-color: #1E2A38;
+  color: #FFFFFF;
+  font-weight: bold;
+  font-size: 1.2rem;
+  letter-spacing: 0.5px;
+}
+
+.form-label {
+  font-weight: 600;
+  color: #1E2A38;
+}
+
+.form-control,
+.form-select {
+  border-radius: 8px;
+  border: 1px solid #ced4da;
+  padding: 0.6rem 0.75rem;
+  font-size: 1rem;
+  transition: box-shadow 0.3s ease;
+}
+
+.form-control:focus,
+.form-select:focus {
+  box-shadow: 0 0 5px rgba(0, 184, 217, 0.5);
+  border-color: #00B8D9;
+}
+
+.btn-info {
+  background-color: #00B8D9;
+  border-color: #00B8D9;
+  color: white;
+  font-weight: 600;
+  border-radius: 6px;
+  padding: 0.5rem 1rem;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-info:hover {
+  background-color: #009AC0;
+  transform: translateY(-1px);
+}
+
+.btn-success {
+  background-color: #28a745;
+  border-color: #28a745;
+  color: #fff;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+.btn-success:hover {
+  background-color: #218838;
+}
+
+.table thead th {
+  background-color: #f0f4f8;
+  color: #1E2A38;
+  font-weight: 600;
+}
+
+.table tbody td {
+  vertical-align: middle;
+  transition: background-color 0.2s ease;
+}
+
+.table tbody tr:hover {
+  background-color: #f1f9ff;
+}
+
+.alert-danger {
+  animation: fadeInAlert 0.4s ease-in-out;
+}
+
+@keyframes fadeInAlert {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.nav-pills .btn {
+  border-radius: 20px;
+  padding: 0.4rem 0.8rem;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+}
+
+.input-group-text {
+  background-color: #f0f0f0;
+  font-weight: 500;
+  color: #1E2A38;
+}
+
+.d-grid .btn {
+  font-size: 1rem;
+  padding: 0.6rem;
+}
+
+.form-check-label {
+  margin-left: 0.25rem;
+  font-weight: 500;
+}
